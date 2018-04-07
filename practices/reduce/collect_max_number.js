@@ -2,13 +2,14 @@
 
 function collect_max_number(collection) {
   //在这里写入代码
-  var result = [collection[0]];
-  for (var i = 0; i < collection.length; i++) {
-    if (collection[i] > result[0]) {
-      result[0] = collection[i];
+  for (var i = 0; i < collection.length - 1; i++) {
+    if (collection[i] < collection[i + 1]) {
+      var temp = collection[i];
+      collection[i] = collection[i + 1];
+      collection[i + 1] = temp;
     }
   }
-  return result[0];
+  return collection[0];
 }
 
 module.exports = collect_max_number;
