@@ -7,8 +7,12 @@ var number_map_to_word_over_26 = function (collection) {
 
       result.push(word[collection[i] - 1]);
     }
+    else {
+      result.push('a'+word[collection[i] - 27] );
+    }
   }
   return result;
 }
 
 module.exports = number_map_to_word_over_26;
+

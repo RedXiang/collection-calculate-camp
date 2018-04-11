@@ -5,20 +5,18 @@ function choose_no_repeat_number(collection) {
   //在这里写入代码
   var result = [collection[0]];
   for (var i = 0; i < collection.length; i++) {
+    var repeat = false;
     for (var j = 0; j < result.length; j++) {
       if (collection[i] == result[j]) {
+        repeat = true;
         break;
       }
-      else {
-        result.push(collection[i]);
-        console.log(j);
-        console.log(i);
-        console.log(result);
-        console.log(collection[i]);
-      }
     }
+    if (!repeat) {
+      result.push(collection[i]);
+    }
+
   }
-  
   return result;
 }
 
