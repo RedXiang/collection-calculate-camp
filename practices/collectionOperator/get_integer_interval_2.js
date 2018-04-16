@@ -10,21 +10,21 @@ function get_integer_interval_2(number_a, number_b) {
     else{
       number_a=number_a+1;
       result.push(number_a);
-    }
+    }                                                                                                    
     while (number_a < number_b) {
       number_a = number_a + 2;
       result.push(number_a);
     }
   
   }
-  if (number_a > number_b) {
+   else if (number_a > number_b) {
     result.push(number_a)
-    while (number_a > number_b) {
+    while ((number_a - number_b)>2) {
       number_a = number_a - 2;
       result.push(number_a);
     }
   }
-  if (number_a = number_b) {
+  else if (number_a == number_b&&number_a%2==0) {
     result.push(number_a);
   }
   return result;
