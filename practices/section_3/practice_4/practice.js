@@ -2,9 +2,9 @@ function create_updated_collection(collection_a, object_b) {
   //在这里写入代码
   var result = [{ key: collection_a[0], count: 1 }];
   var collection = [collection_a[0]];
+  var n = 0;
   for (var i = 1; i < collection_a.length; i++) {
     var repeat = false;
-    var n = 0;
     if (collection_a[i].length > 1) {
       collection_a[i].split('-');
       for (var k = 0; k < collection_a[i][1]; k++) {

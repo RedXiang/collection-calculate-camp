@@ -4,20 +4,23 @@ function grouping_count(collection) {
 
   //在这里写入代码
   var result = {};
+  result[collection[0].toString()] = 1;
   var collection_a = [collection[0]];
-  for (var i = 0; i < collection.length; i++) {
+  for (var i = 1; i < collection.length; i++) {
     var repeat = false;
-    result.collection[i] = 0;
     for (var j = 0; j < collection_a.length; j++) {
       if (collection[i] == collection_a[j]) {
-        result.collection[i] += 1;
         repeat = true;
+        result[collection[i].toString()] = result[collection[i].toString()] + 1;
         break;
       }
     }
     if (!repeat) {
       collection_a.push(collection[i]);
-      result.collection[i] = 1;
+      result[collection[i].toString()] = 1;
     }
+
   }
-  module.exports = grouping_count;
+  return result;
+}
+module.exports = grouping_count;
