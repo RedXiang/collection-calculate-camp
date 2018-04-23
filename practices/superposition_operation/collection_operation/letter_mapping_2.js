@@ -10,7 +10,8 @@ function average_to_letter(collection) {
     sum += collection[i];
   }
   var evr = sum / i;
-  console.log(evr);
+  result = word[Math.floor(evr)];
+  return result;
 }
 
 module.exports = average_to_letter;
