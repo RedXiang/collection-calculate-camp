@@ -1,43 +1,47 @@
 'use strict';
 var even_group_calculate_average = function (collection) {
-    var collection_p = [];
     var result = [];
     var result1 = [];
     var result2 = [];
     var resuslt3 = [];
+    var empty1 = true;
+    var empty2 = true;
+    var empty3 = true;
     for (var i = 0; i < collection.length; i++) {
         if (i % 2 != 0) {
-            collection_p.push(collection[i]);
-        }
-    }
-    for (var j = 0; j < collection_p.length; j++) {
-        if (collection_p[j] % 2 == 0) {
-            if (collection_p[j].toString.length == 1) {
-                result1.push(collection_p[i]);
+            if (collection[i] % 2 == 0) {
+                if (collection[i].toString().length == 1) {
+                    result1.push(collection[i]);
+                    empty1 = false;
+                }
+                else if (collection[i].toString().length == 2) {
+                    result2.push(collection[i]);
+                    empty2 = false;
+                }
+                else {
+                    resuslt3.push(collection[i]);
+                    empty3 = false;
+                }
             }
-            else if (collection_p[j].toString.length == 2) {
-                result2.push(collection_p[i]);
-            }
-            else if (collection_p[j].toString.length == 3) {
-                result3.push(collection_p[i]);
-            }
-
-
-        }
-        else {
-            result.push(0);
         }
     }
     var average = function (array) {
         var sum = 0;
-        for (var k = 0; k < array.length; k++) {
-            sum += array[i];
+        for (var j = 0; j < array.length; j++) {
+            sum += array[j];
         }
-        var average = sum / k;
+        var average = sum / j;
+        return average;
     }
-    result.push(average(result1));
-    result.push(average(result2));
-    result.push(average(resuslt3));
+    if (empty1 && empty2 && empty3) {
+        result = [0];
+    }
+    else if (empty1 && empty2) {
+        result = [average(resuslt3)];
+    }
+    else {
+        result = [average(result1), average(result2), average(resuslt3)];
+    }
     return result;
 };
 module.exports = even_group_calculate_average;
